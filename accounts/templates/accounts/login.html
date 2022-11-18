@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{% block section %}
+  <h1>로그인 로직</h1>
+  <form action="" method="POST">
+    {% csrf_token %}
+    {% bootstrap_form login_form %}
+    <button type='submit' class="btn btn-primary float-end">회원가입</button>
+  </form>
+{% endblock section %}
