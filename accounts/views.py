@@ -49,6 +49,15 @@ def logout(request):
 
     return redirect('articles:index')
 
+def detail(request, pk):
+    user = get_object_or_404(get_user_model(), pk=pk)
+    
+    context = {
+        'user': user,
+    }
+    return render(request, 'accounts/detail.html', context)
+
+
 @login_required
 def follow(request, pk):
     user = get_object_or_404(get_user_model(), pk=pk)
