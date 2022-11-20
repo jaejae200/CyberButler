@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block css %}
+  <link rel="stylesheet" href="{% static 'articles/css/style.css' %}">
+{% endblock %}
+
 {% block section %}
   <a href="{% url 'accounts:signup' %}">회원가입 테스트</a>
   <a href="{% url 'accounts:login' %}">로그인 테스트</a>
@@ -40,9 +44,9 @@
         <div class="comment">
           <span class="comment_txt">
             <b>
-              mychew
+              jaeajae
             </b>
-            제주도 가고 싶어요 ㅠㅠ
+            더미
           </span>
         </div>
       </div>

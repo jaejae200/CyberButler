@@ -1,4 +1,55 @@
 {% extends 'base.html' %}
 {% load django_bootstrap5 %}
+{% load static %}
 
-{% block section %}{% endblock section %}
+{% block css %}
+  <link rel="stylesheet" href="{% static 'accounts/css/style.css' %}">
+{% endblock %}
+
+{% block section %}
+  <div class="main">
+    <div class="article-body">
+      <div class="user">
+        <div class="user_detail">
+          <div class="user_img">
+            <img class="profile_img" src="https://ichef.bbci.co.uk/news/640/cpsprodpb/E172/production/_126241775_getty_cats.png">
+          </div>
+          <div class="user_content">
+            <div class="user_profile">
+              <p class="m-0 fw-bold pe-5">{{ user.username }}</p>
+              <a href="#" class="btn btn-outline-secondary btn-sm">프로필 편집</a>
+            </div>
+            <div>
+              <ul class="history">
+                <li class="pe-4">
+                  게시글 10
+                </li>
+                <li class="pe-4">
+                  게시글 10
+                </li>
+                <li class="pe-4">
+                  게시글 10
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div>
+        <div class="history_list">
+          <p>게시글</p>
+          <hr>
+        </div>
+        <div class="history_list">
+          <p>팔로우</p>
+          <hr>
+        </div>
+        <div class="history_list">
+          <p>팔로잉</p>
+          <hr>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock section %}
