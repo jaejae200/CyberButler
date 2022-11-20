@@ -1,13 +1,19 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .forms import ArticleForm, CommentForm
+from .models import Article
 
 
 # Create your views here.
 
 def index(request):
-    
-    return render(request, 'articles/index.html')
+    articles = Article.objects.order_by('-pk')
+
+    context = {
+        'articles' : articles
+    }
+
+    return render(request, 'articles/index.html', context)
 
 @login_required
 def create(request):

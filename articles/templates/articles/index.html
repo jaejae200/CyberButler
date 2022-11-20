@@ -11,46 +11,49 @@
   <div class="main">
     <!-- article -->
     <div class="article-body">
-      <div class="border article">
-        <img src="https://mblogthumb-phinf.pstatic.net/MjAxNzA2MTFfMjc1/MDAxNDk3MTcyMDgyNzEw.ID5RyHWKvsVEW2NS9EQGyRYX7vUaXr7znQeuTrRRmdIg.gK7MD7VhNJPkV4_dueiWer2y-oH7NAAmEklF-6bbYyQg.JPEG.jejubyeol/%EC%97%AC%EB%A6%84%EC%97%90_%EC%A0%9C%EC%A3%BC%EB%8F%84_%EC%82%AC%EC%A7%84%EC%B0%8D%EA%B8%B0_%EC%A2%8B%EC%9D%80%EA%B3%B3.jpg?type=w800">
-        <div class="article_icon">
-          <div>
-            <span class="material-icons-outlined">
-              favorite_border
-            </span>
-            <span class="material-icons-outlined">
-              mode_comment
-            </span>
-            <span class="material-icons-outlined">
-              send
+      {% for article in articles %}
+        <div class="border article">
+          {% if article.image %}
+            <img src="{{ article.image.url }}">
+          {% else %}
+            <img src="https://dummyimage.com/1200x960/000000/c4c4c4" class="card-img-top">
+          {% endif %}
+          <div class="article_icon">
+            <div>
+              <span class="material-icons-outlined">
+                favorite_border
+              </span>
+              <span class="material-icons-outlined">
+                mode_comment
+              </span>
+              <span class="material-icons-outlined">
+                send
+              </span>
+            </div>
+            <div>
+              <span class="material-icons-outlined">
+                turned_in_not
+              </span>
+            </div>
+          </div>
+          <div class="article_like">
+            <p class="comment_txt">
+              <b>좋아요 10개</b>
+            </p>
+          </div>
+          <div class="article_content">
+            <p class="article_txt">{{ article.content }}</p>
+          </div>
+          <div class="comment">
+            <span class="comment_txt">
+              <b>
+                jaeajae
+              </b>
+              더미
             </span>
           </div>
-          <div>
-            <span class="material-icons-outlined">
-              turned_in_not
-            </span>
-          </div>
         </div>
-        <div class="article_like">
-          <p class="comment_txt">
-            <b>좋아요 10개</b>
-          </p>
-        </div>
-        <div class="article_content">
-          <p class="article_txt">더미 텍스트 더미 텍스트 더미 텍스트 더미 텍스트</p>
-        </div>
-        <div class="comment">
-          <span class="comment_txt">
-            <b>
-              jaeajae
-            </b>
-            더미
-          </span>
-        </div>
-      </div>
-      <div class="border article">
-        <img src="https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/11/hfpqyV7B-IMG-Dubai-UAE.jpg" alt="">
-      </div>
+      {% endfor %}
     </div>
     <!-- User -->
     <div class="user-body">
