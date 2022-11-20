@@ -6,8 +6,6 @@
 {% endblock %}
 
 {% block section %}
-  <a href="{% url 'accounts:signup' %}">회원가입 테스트</a>
-  <a href="{% url 'accounts:login' %}">로그인 테스트</a>
   <a href="{% url 'accounts:logout' %}">로그아웃 테스트</a>
 
   <div class="main">
@@ -57,22 +55,26 @@
     <!-- User -->
     <div class="user-body">
       <div class="user_detail">
-        <div class="user_profile">
-          <div class="big_profile">
-            <img class="profile_img" src="https://ichef.bbci.co.uk/news/640/cpsprodpb/E172/production/_126241775_getty_cats.png">
+        {% if request.user.is_authenticated %}
+          <div class="user_profile">
+            <div class="big_profile">
+              <img class="profile_img" src="https://ichef.bbci.co.uk/news/640/cpsprodpb/E172/production/_126241775_getty_cats.png">
+            </div>
+            <div class="user_content">
+              <span class="user_detail_txt">
+                {{ request.user.username }}
+              </span>
+            </div>
           </div>
-          <div class="user_content">
-            <span class="user_detail_txt">
-              재재
-            </span>
-            <span class="user_content_txt">
-              KIM jaejae</span>
-          </div>
-        </div>
+          <a href="{% url 'accounts:detail' request.user.pk %}" class="link_txt">
+            정보
+          </a>
+        {% else %}
+          <p>로그인을 해주세요.</p>
+          <a href="{% url 'accounts:login' %}">로그인</a>
+          <a href="{% url 'accounts:signup' %}">회원가입</a>
+        {% endif %}
 
-        <a class="link_txt">
-          정보
-        </a>
       </div>
 
       <div class="recommend_box">

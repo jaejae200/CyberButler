@@ -19,6 +19,8 @@
     position: fixed;
 }
 
+
+
 .article {
     background-color: white;
     width: 480px;
@@ -67,6 +69,7 @@ span {
     padding: 10px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .user_detail_txt {
@@ -122,6 +125,7 @@ span {
     font-weight: bold;
     cursor: pointer;
     text-decoration: none;
+    text-align: end;
 }
 
 .recommend_box {
